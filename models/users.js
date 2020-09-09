@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, DataType) => {
     const Users = sequelize.define("Users", {
         id: {
@@ -29,10 +30,10 @@ module.exports = (sequelize, DataType) => {
         }
     }, {
         classMethods: {
-            associeate: (models) => {
-                Users.hasMany(models.taks)
+            associate: models => {
+                Users.hasMany(models.Tasks);
             }
         }
-    })
-    return Users
-}
+    });
+    return Users;
+};

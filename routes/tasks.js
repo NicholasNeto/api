@@ -12,7 +12,12 @@ module.exports = app => {
                 })
         })
         .post((req, res) => {
-            // "/tasks" : Cadastra uma nova tarefa
+            // "/tasks" : Cadastra uma nova tarefa]
+            Tasks.create(req.body)
+                .then(result => res.json(result))
+                .catch(error => {
+                    res.status(412).json({ msg: error.message })
+                })
         });
 
     app.route("/tasks/:id")
