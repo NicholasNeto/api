@@ -19,7 +19,9 @@ module.exports = app => {
                         res.sendStatus(401);
                     }
                 })
-                .catch(error => res.sendStatus(401));
+                .catch(error => {
+                    res.sendStatus(401)
+                });
         } else {
             res.sendStatus(401);
         }
