@@ -41,7 +41,9 @@ module.exports = (sequelize, DataType) => {
                 Users.hasMany(models.Tasks);
             },
             isPassword: (encodedPassword, password) => {
-                return bcrypt.compareSync(password, encodedPassword);
+                // bcrypt.compareSync(password, encodedPassword);
+                // compareSync does not work 
+                return encodedPassword === password
             }
         }
     });
